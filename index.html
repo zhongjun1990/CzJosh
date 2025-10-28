@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A股市场情绪打分系统</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>A股市场情绪打分系统</h1>
+            <div class="update-time">
+                <span id="updateTime">更新时间: --</span>
+                <button id="refreshBtn" class="refresh-btn">刷新数据</button>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <!-- 情绪总分卡片 -->
+            <div class="score-card main-score">
+                <h2>市场情绪指数</h2>
+                <div class="score-display">
+                    <span id="sentimentScore" class="score-value">--</span>
+                    <span class="score-label">分</span>
+                </div>
+                <div id="sentimentLevel" class="sentiment-level">--</div>
+                <div class="score-description">
+                    <p id="scoreDesc">加载中...</p>
+                </div>
+            </div>
+
+            <!-- 各项指标卡片 -->
+            <div class="indicators-grid">
+                <div class="indicator-card">
+                    <h3>涨跌家数比</h3>
+                    <div class="indicator-value" id="riseRatio">--</div>
+                    <div class="indicator-bar">
+                        <div id="riseBar" class="bar-fill rise"></div>
+                    </div>
+                </div>
+
+                <div class="indicator-card">
+                    <h3>成交量变化</h3>
+                    <div class="indicator-value" id="volumeChange">--</div>
+                    <div class="indicator-bar">
+                        <div id="volumeBar" class="bar-fill volume"></div>
+                    </div>
+                </div>
+
+                <div class="indicator-card">
+                    <h3>市场波动率</h3>
+                    <div class="indicator-value" id="volatility">--</div>
+                    <div class="indicator-bar">
+                        <div id="volatilityBar" class="bar-fill volatility"></div>
+                    </div>
+                </div>
+
+                <div class="indicator-card">
+                    <h3>资金流向</h3>
+                    <div class="indicator-value" id="moneyFlow">--</div>
+                    <div class="indicator-bar">
+                        <div id="moneyBar" class="bar-fill money"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图表区域 -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h2>上证指数走势（K线图）</h2>
+                <div id="candlestickChart" class="chart"></div>
+            </div>
+
+            <div class="chart-container">
+                <h2>情绪指标趋势</h2>
+                <div id="sentimentTrendChart" class="chart"></div>
+            </div>
+
+            <div class="chart-container full-width">
+                <h2>市场情绪雷达图</h2>
+                <div id="radarChart" class="chart"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>数据仅供参考，不构成投资建议 | A股情绪打分系统 v1.0</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
